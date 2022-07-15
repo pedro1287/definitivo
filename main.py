@@ -951,6 +951,18 @@ def onmessage(update,bot:ObigramClient):
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
             bot.editMessageText(message,"✅Evea configuration loaded")
+        elif '/aulaucm' in msgText:
+            getUser = user_info
+            getUser['moodle_host'] = "http://aula.ucm.grm.sld.cu/"
+            getUser['uploadtype'] = "calendar"
+            getUser['moodle_user'] = "---"
+            getUser['moodle_password'] = "---"
+            getUser['moodle_repo_id'] = 5
+            getUser['zips'] = 20
+            jdb.save_data_user(username,getUser)
+            jdb.save()
+            statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
+            bot.editMessageText(message,"✅Aulaucm configuration loaded")
         elif 'http' in msgText:
             url = msgText
             ddl(update,bot,message,url,file_name='',thread=thread,jdb=jdb)
