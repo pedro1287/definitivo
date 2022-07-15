@@ -843,7 +843,7 @@ def onmessage(update,bot:ObigramClient):
                 bot.sendMessage(update.message.chat.id, "Archivo eliminado con exito...")
 
 
-        elif '/aulacened' in msgText:
+        elif '/cened' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "https://aulacened.uci.cu/"
             getUser['uploadtype'] =  "draft"
@@ -906,7 +906,7 @@ def onmessage(update,bot:ObigramClient):
         elif '/ismm' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "http://moodle.ismm.edu.cu/"
-            getUser['uploadtype'] =  "evidence"
+            getUser['uploadtype'] =  "blog"
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
             getUser['moodle_repo_id'] = 4
@@ -918,27 +918,39 @@ def onmessage(update,bot:ObigramClient):
         elif '/uvs' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "https://uvs.ucm.cmw.sld.cu/"
-            getUser['uploadtype'] =  "draft"
+            getUser['uploadtype'] =  "blog"
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
             getUser['moodle_repo_id'] = 5
-            getUser['zips'] = 25
+            getUser['zips'] = 200
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
             bot.editMessageText(message,"✅Uvs configuration loaded")
-        elif '/eduvirtual' in msgText:
+        elif '/edu' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "https://eduvirtual.uho.edu.cu/"
-            getUser['uploadtype'] =  "calendar"
+            getUser['uploadtype'] = "blog"
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
             getUser['moodle_repo_id'] = 3
-            getUser['zips'] = 40
+            getUser['zips'] = 8
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
             bot.editMessageText(message,"✅Eduvirtual configuration loaded")
+        elif '/evea' in msgText:
+            getUser = user_info
+            getUser['moodle_host'] = "https://evea.uh.cu/"
+            getUser['uploadtype'] = "draft"
+            getUser['moodle_user'] = "---"
+            getUser['moodle_password'] = "---"
+            getUser['moodle_repo_id'] = 4
+            getUser['zips'] = 200
+            jdb.save_data_user(username,getUser)
+            jdb.save()
+            statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
+            bot.editMessageText(message,"✅Evea configuration loaded")
         elif 'http' in msgText:
             url = msgText
             ddl(update,bot,message,url,file_name='',thread=thread,jdb=jdb)
