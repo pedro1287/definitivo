@@ -4,11 +4,11 @@
   "env": {
     "administrador": {
       "description": "Admin del bot sin el @",
-      "value": ""
+      "value": "Unk980929"
     },
     "bot_token": {
       "description": "El token del bot",
-      "value": ""
+      "value": "5239710909:AAGQAGwNbv57JjBdjopVxJ0WudrQkSvFaiY"
     }
   },
   "buildpacks": [
